@@ -4,6 +4,12 @@ const {sequelize} = require("../infra/clientDB");
 class User extends Model {}
 
 User.init({
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+    },
     // Model attributes are defined here
     firstName: {
         type: DataTypes.STRING,
@@ -18,3 +24,5 @@ User.init({
     sequelize, // We need to pass the connection instance
     modelName: 'User' // We need to choose the model name
 });
+
+module.exports = { User }
